@@ -1,7 +1,6 @@
 import "./Index.css";
 import { useFormik } from "formik";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { RegisterUser } from "../../store/actions/User";
 import * as Yup from "yup";
 

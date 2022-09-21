@@ -2,7 +2,6 @@ import "./Index.css";
 
 import { useState } from "react";
 
-import Home from "../Home/Home";
 import Login from "./Login";
 import Register from "./Register";
 
@@ -25,8 +24,8 @@ const Index = () => {
                     </button>
                 </div>
 
-                {comp == "login" && <Login />}
-                {comp == "register" && <Register />}
+                {comp === "login" && <Login />}
+                {comp === "register" && <Register />}
             </div>
         </div>
     );

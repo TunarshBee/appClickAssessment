@@ -1,7 +1,5 @@
 import "./Index.css";
 import { useFormik } from "formik";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
 const Login = () => {

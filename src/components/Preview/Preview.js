@@ -95,7 +95,7 @@ const Preview = () => {
         {videoPlaceH && (
           <div className="placeholder">
             <img
-              src="https://media.giphy.com/media/jAYUbVXgESSti/giphy.gif"
+              src="https://mobileinternist.com/wp-content/uploads/2022/07/youtube-thumbnails-not-showing.png?ezimgfmt=ng%3Awebp%2Fngcb31%2Frs%3Adevice%2Frscb31-1"
               width="100%"
               alt="Video Loader"
               srcset=""

@@ -1,3 +1,11 @@
+:root{
+    --buttonColor:rgb(125, 69, 27);
+    --buttonHover:rgba(125, 69, 27, .5);
+    --backgroundColor:rgb(228, 226, 226);
+    --boxShadow: 1px 1px 2px 1px rgba(180, 179, 179, 0.493),
+            -1px -1px 2px 1px rgba(170, 167, 167, 0.383);
+}
+
 a {
     text-decoration: none;
 }
@@ -12,7 +20,7 @@ a {
     align-items: center;
     justify-content: center;
 
-    border-radius: 30px;
+    border-radius: 10px;
 }
 .viewModal {
     margin: 10px;
@@ -28,9 +36,8 @@ a {
     padding: 5px;
     text-align: center;
     font-size: 34px;
-    color: #3366ff;
+    color: var(--buttonColor);
 }
-/* background-color: hsl(225, 100%, 65%); */
 
 .viewModal button {
     margin: 40px auto;
@@ -38,17 +45,16 @@ a {
     display: flex;
     margin: auto;
     text-align: center;
-    background-color: #3366ff;
-    border-radius: 30px;
+    background-color: var(--buttonColor);
+    border-radius: 10px;
     outline: none;
     border: none;
     font-size: 17px;
     color: white;
-    box-shadow: 1px 1px 2px 1px rgba(182, 179, 179, 0.52),
-        -1px -1px 5px 1px rgba(182, 179, 179, 0.52);
+    box-shadow: var(--boxShadow);
 }
 
 .viewModal button:hover {
     margin: 40px auto;
-    background-color: hsl(225, 100%, 65%);
+    background-color: var(--buttonHover);
 }

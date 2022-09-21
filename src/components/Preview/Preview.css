@@ -219,7 +219,7 @@
     .preview input {
         margin: 20px auto;
         padding: 5px 10px;
-        border-radius: 15px;
+        border-radius: 5px;
         border: solid 1px var(--buttonColor);
         width: 200px;
         outline: none;

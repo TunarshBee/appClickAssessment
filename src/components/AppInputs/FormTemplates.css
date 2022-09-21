@@ -1,0 +1,293 @@
+:root{
+    --buttonColor:rgb(125, 69, 27);
+    --buttonHover:rgba(125, 69, 27, .5);
+    --backgroundColor:rgb(228, 226, 226);
+    --boxShadow: 1px 1px 2px 1px rgba(180, 179, 179, 0.493),
+            -1px -1px 2px 1px rgba(170, 167, 167, 0.383);
+}
+/* Mobile view */
+@media (max-width: 543px) {
+    .formTemplates {
+        margin: 20px auto 0px;
+        padding: 15px;
+        position: fixed;
+        top: 15%;
+        bottom: 4%;
+        left: 10%;
+        right: 10%;
+
+        display: flex;
+        flex-direction: row;
+        border-radius: 20px;
+
+        border-radius: 40px;
+        box-shadow: var(--boxShadow);
+    }
+
+    .temp {
+        margin: 5px;
+        padding: 10px;
+        background-color: var(--backgroundColor);
+        height: 100%;
+        width: 50%;
+        border-radius: 30px;
+    }
+    #temp1 {
+        margin: 1px;
+        padding: 1px;
+        height: 100%;
+        width: 50%;
+    }
+
+    .tempbtnBox {
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+    }
+    .tempbtn {
+        margin: 10px auto;
+        padding: 5px 15px;
+        border: none;
+        border-radius: 20px;
+        background-color: var(--buttonColor);
+        color: white;
+        font-size: 9px;
+        font-weight: bold;
+    }
+    .tempbtn:hover {
+        background-color: var(--buttonHover);
+    }
+    #temp1 form {
+        margin: 20px auto;
+        padding: 30px 2px 20px;
+        position: relative;
+        top: 18%;
+        max-width: 275px;
+        max-height: 230px;
+        background-color: var(--backgroundColor);
+        border-radius: 5px 40px;
+        box-shadow: var(--boxShadow);
+    }
+
+    #temp1 form:hover {
+        box-shadow: var(--boxShadow);
+    }
+    #temp1 form input {
+        margin: 10px auto;
+        padding: 3px 5px;
+        display: flex;
+        position: relative;
+
+        border: solid 1px var(--buttonColor);
+
+        width: 150px;
+        height: 20px;
+        border-radius: 8px;
+    }
+
+    #temp1 form #btn {
+        margin: 8px auto;
+        padding: 6px 50px;
+        display: flex;
+        outline: none;
+        border: none;
+        background-color: var(--buttonColor);
+        font-size: 14px;
+        border-radius: 30px;
+        color: white;
+    }
+    #temp1 form #btn:hover {
+        background-color: var(--buttonHover);
+    }
+    
+    #temp2 {
+        margin: 1px;
+        padding: 1px;
+        height: 100%;
+        width: 50%;
+     
+    }
+
+    #temp2 .tempBox {
+        margin: 90px auto 5px;
+        padding: 1px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .tempBox span {
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .tempBox h5 {
+        margin: 15px;
+        padding: 1px;
+        font-size: 12px;
+        font-family: sans-serif;
+        font-weight: lighter;
+    }
+
+    #temp2 .tempBox button {
+        margin: 20px;
+        padding: 7px 65px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        color: white;
+        background-color: var(--buttonColor);
+        border-radius: 50px;
+        font-size: 16px;
+        font-family: sans-serif;
+        max-width: 100%;
+    }
+    #temp2 .tempBox button:hover {
+        background-color:var(--buttonHover);
+    }
+}
+
+/* for tablet view */
+@media (min-width: 544px) {
+    .formTemplates {
+        margin: 20px auto 0px;
+        padding: 15px;
+        position: fixed;
+        top: 15%;
+        bottom: 4%;
+        left: 10%;
+        right: 10%;
+
+        display: flex;
+        flex-direction: row;
+
+        border-radius: 10px;
+        box-shadow: var(--boxShadow);
+    }
+
+    .temp {
+        margin: 5px;
+        padding: 10px;
+        height: 100%;
+        width: 50%;
+        border-radius: 30px;
+    }
+    #temp1 {
+        margin: 1px;
+        padding: 1px;
+        height: 100%;
+        width: 50%;
+    }
+
+    .tempbtnBox {
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+    }
+    .tempbtn {
+        margin: 10px auto;
+        padding: 5px 15px;
+        border: none;
+        border-radius: 20px;
+        background-color: var(--buttonColor);
+        color: white;
+        font-size: 13px;
+    }
+    .tempbtn:hover {
+        background-color: var(--buttonHover);
+    }
+    #temp1 form {
+        margin: 20px auto;
+        padding: 40px 2px 20px;
+        /* max-width: 100%; */
+        position: relative;
+        top: 10%;
+        max-width: 275px;
+        height: 300px;
+        background-color: white;
+        border-radius: 10px 10px;
+        box-shadow: var(--boxShadow);
+    }
+
+    #temp1 form:hover {
+        box-shadow: var(--boxShadow);
+    }
+    #temp1 form input {
+        margin: 10px auto;
+        padding: 3px 5px;
+        display: flex;
+        position: relative;
+
+        border: none;
+        border-bottom: 5px solid var(--backgroundColor);
+        width: 190px;
+        height: 20px;
+    }
+
+    #temp1 form #btn {
+        margin: auto;
+        padding: 6px 70px;
+        display: flex;
+        outline: none;
+        border: none;
+        background-color: var(--buttonColor);
+        font-size: 14px;
+        border-radius: 10px;
+        color: white;
+    }
+    #temp1 form #btn:hover {
+        background-color: var(--buttonHover);
+    }
+    
+  
+    .tempBox {
+        margin: 90px auto 5px;
+        padding: 1px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .tempBox span {
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .tempBox h5 {
+        margin: 15px;
+        padding: 1px;
+        font-size: 16px;
+        font-family: sans-serif;
+        font-weight: lighter;
+    }
+
+    #temp2 .tempBox button {
+        margin: 20px 20%;
+        padding: 10px 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        justify-self: center;
+        border: none;
+        color: white;
+        background-color: var(--buttonColor);
+        border-radius: 10px;
+        font-size: 18px;
+        font-family: sans-serif;
+        max-width: 100%;
+    }
+    #temp2 .tempBox button:hover {
+        background-color: var(--buttonHover);
+    }
+}
+

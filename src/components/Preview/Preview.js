@@ -9,21 +9,18 @@ const Preview = () => {
   const [videoPlaceH, setVideoPlaceH] = useState(true);
   const [vidCurrentTime, setVidCurrentTime] = useState();
 
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-
   const [form, setForm] = useState(false);
   const uploadVideo = (e) => {
     setVideoUrl(false);
     const file = e.target.files[0];
     const vidUrl = URL.createObjectURL(file);
     setVideofile(vidUrl);
-
+    
     setVideoPlaceH(false);
   };
   return (
     <div className="preview">
-      <h5>Preview</h5> <br />
+      <h5>Paste a Youtube link, choose a video file or drag and drop a video file</h5> <br />
       {vidCurrentTime < 20 && form === true && (
         <div
           className="template"
@@ -34,7 +31,6 @@ const Preview = () => {
           <form
             style={{
               backgroundColor: formStyle.theme,
-              borderRadius: formStyle.formBorder,
             }}
           >
             <h6
@@ -53,41 +49,33 @@ const Preview = () => {
                 setForm(false);
               }}
             >
+              
               X
             </h6>
-            <br /> <br />
-            <input
-              type="text"
-              placeholder="Name"
-              style={{
-                color: formStyle.textColor,
-                fontSize: formStyle.fontSize,
-              }}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Email"
-              style={{
-                color: formStyle.textColor,
-                fontSize: formStyle.fontSize,
-              }}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <br /> <br />
-            <button
-              type="submit"
-              id="btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setForm(false);
-              }}
-            >
-              Submit
-            </button>
-            <br /> <br />
+                {formStyle.text && (<h4>{formStyle.text}</h4>)}
+                {formStyle.file && (
+                  <video
+                  src={formStyle.file}
+                  controlsList=""
+                  controls
+                  id="video"
+                  width="200px"
+                  height="100px"
+                  onPlay={(e) => {
+                    setInterval(() => {
+                      setVidCurrentTime(e.target.currentTime);
+                    }, 1000);
+      
+                    setTimeout(() => {
+                      setForm(true);
+                    }, formStyle.popTime);
+                  }}
+                  onPause={(e) => {
+                    setVidCurrentTime(e.target.currentTime);
+                    console.log(vidCurrentTime);
+                  }}
+                ></video>
+                )}
           </form>
         </div>
       )}
@@ -98,7 +86,6 @@ const Preview = () => {
               src="https://mobileinternist.com/wp-content/uploads/2022/07/youtube-thumbnails-not-showing.png?ezimgfmt=ng%3Awebp%2Fngcb31%2Frs%3Adevice%2Frscb31-1"
               width="100%"
               alt="Video Loader"
-              srcset=""
             />
           </div>
         )}
@@ -151,7 +138,7 @@ const Preview = () => {
         }}
       />
       <h4
-        style={{ margin: "0px", color: "rgb(228, 226, 226);", display: "flex" }}
+        style={{ margin: "0px", color: "blue", display: "flex" }}
       >
         OR
       </h4>
@@ -165,12 +152,6 @@ const Preview = () => {
           uploadVideo(e);
         }}
       />
-      {!form && (
-        <ul>
-          <li>{name}</li>
-          <li>{email}</li>
-        </ul>
-      )}
     </div>
   );
 };

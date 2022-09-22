@@ -15,13 +15,16 @@ const Preview = () => {
     const file = e.target.files[0];
     const vidUrl = URL.createObjectURL(file);
     setVideofile(vidUrl);
-    
+
     setVideoPlaceH(false);
   };
   return (
     <div className="preview">
-      <h5>Paste a Youtube link, choose a video file or drag and drop a video file</h5> <br />
-      {vidCurrentTime < 20 && form === true && (
+      <h5>
+        Paste a Youtube link, choose a video file or drag and drop a video file
+      </h5>{" "}
+      <br />
+      {vidCurrentTime && form === true && formStyle.text && (
         <div
           className="template"
           style={
@@ -31,17 +34,19 @@ const Preview = () => {
           <form
             style={{
               backgroundColor: formStyle.theme,
+              color: formStyle.textColor,
+              fontSize: formStyle.fontSize,
             }}
           >
             <h6
               style={{
                 margin: " 0px 10px",
                 padding: "3px 6px",
-                backgroundColor: "silver",
+                backgroundColor: "transparent",
                 display: "flex",
                 borderRadius: "50px",
                 float: "right",
-                color: "blue",
+                color: "red",
                 cursor: "pointer",
                 fontFamily: "sans-serif",
               }}
@@ -49,49 +54,24 @@ const Preview = () => {
                 setForm(false);
               }}
             >
-              
               X
             </h6>
-                {formStyle.text && (<h4>{formStyle.text}</h4>)}
-                {formStyle.file && (
-                  <video
-                  src={formStyle.file}
-                  controlsList=""
-                  controls
-                  id="video"
-                  width="200px"
-                  height="100px"
-                  onPlay={(e) => {
-                    setInterval(() => {
-                      setVidCurrentTime(e.target.currentTime);
-                    }, 1000);
-      
-                    setTimeout(() => {
-                      setForm(true);
-                    }, formStyle.popTime);
-                  }}
-                  onPause={(e) => {
-                    setVidCurrentTime(e.target.currentTime);
-                    
-                  }}
-                ></video>
-                )}
+            {formStyle.text && (
+              <h4
+                style={{
+                  borderRadius: "10px",
+                }}
+              >
+                {formStyle.text}
+              </h4>
+            )}
           </form>
         </div>
       )}
       <div className="videoBox">
-        {videoPlaceH && (
-          <div className="placeholder">
-            <img
-              src="https://mobileinternist.com/wp-content/uploads/2022/07/youtube-thumbnails-not-showing.png?ezimgfmt=ng%3Awebp%2Fngcb31%2Frs%3Adevice%2Frscb31-1"
-              width="100%"
-              alt="Video Loader"
-            />
-          </div>
-        )}
-        {videofile && (
+        {formStyle.videfile && (
           <video
-            src={videofile}
+            src={formStyle.videfile}
             controlsList=""
             controls
             id="video"
@@ -106,52 +86,33 @@ const Preview = () => {
             }}
             onPause={(e) => {
               setVidCurrentTime(e.target.currentTime);
-              
             }}
           ></video>
         )}
 
-        {videoUrl && (
+        {formStyle.videoUrl && (
           <iframe
             width="560"
             height="315"
-            src={`https://www.youtube.com/embed/${videoUrl}`}
+            src={`https://www.youtube.com/embed/${formStyle.videoUrl}`}
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
+            onPlay={(e) => {
+              setInterval(() => {
+                setVidCurrentTime(e.target.currentTime);
+              }, 1000);
+              setTimeout(() => {
+                setForm(true);
+              }, formStyle.popTime);
+            }}
+            onPause={(e) => {
+              setVidCurrentTime(e.target.currentTime);
+            }}
           ></iframe>
         )}
       </div>
-      <input
-        type="text"
-        placeholder="Past YouTube Video Url"
-        onChange={(e) => {
-          let url = e.target.value.split("v=")[1];
-          setVideoPlaceH(false);
-          setVideofile(false);
-          setVideoUrl(url);
-
-          setTimeout(() => {
-            setForm(true);
-          }, formStyle.popTime + 2000);
-        }}
-      />
-      <h4
-        style={{ margin: "0px", color: "blue", display: "flex" }}
-      >
-        OR
-      </h4>
-      <label htmlFor="file">Drag and Drop</label>
-      <input
-        type="file"
-        name="file"
-        id="file"
-        accept="video/*"
-        onChange={(e) => {
-          uploadVideo(e);
-        }}
-      />
     </div>
   );
 };

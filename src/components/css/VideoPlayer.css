@@ -100,12 +100,10 @@
   }
 
   #temp2 .tempBox button {
-    margin: 20px;
-    padding: 7px 65px;
+    /* margin: 20px; */
+    padding: 7px 15px;
     display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+position: absolute;
     border: none;
     color: white;
     background-color: var(--buttonColor);
@@ -113,7 +111,9 @@
     font-size: 16px;
     font-family: sans-serif;
     transition: 0.8s all ease-in-out;
-    max-width: 100%;
+    margin-top: -20px;
+    /* left: 5%; */
+
   }
   #temp2 .tempBox button:hover {
     background-color: white;
@@ -125,13 +125,13 @@
 /* for tablet view */
 @media (min-width: 544px) {
   .formTemplates {
-    margin: 20px auto 0px;
-    padding: 15px;
-    position: fixed;
+    /* margin: 20px auto 0px; */
+    padding: 3% 15px;
+    position: relative;
     top: 10%;
     bottom: 4%;
     left: 10%;
-    right: 10%;
+    right: 50%;
     width: 80%;
     background-color: rgba(255, 255, 255, 0.8);
     display: flex;
@@ -220,9 +220,11 @@
     margin: 90px auto 5px;
     padding: 1px;
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+  
   }
 
   .tempBox span {
@@ -233,7 +235,7 @@
     align-items: center;
   }
   .tempBox h5 {
-    margin: 15px;
+    margin: 10px;
     padding: 1px;
     font-size: 16px;
     font-family: sans-serif;
@@ -241,13 +243,32 @@
   }
 
   #temp2 .tempBox button {
-    margin: 20px 20%;
-    padding: 10px 100px;
+    /* margin: 20px; */
+    padding: 10px 70px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-    justify-self: center;
+position: absolute;
+    
+    border: none;
+    color: white;
+    background-color: var(--buttonColor);
+    border-radius: 10px;
+    font-size: 18px;
+    transition: 0.8s all ease-in-out;
+    font-family: sans-serif;
+    /* left: 3%; */
+
+  }
+  #temp2 .tempBox button:hover {
+    background-color: white;
+    color: var(--buttonColor);
+    border: 3px solid var(--buttonColor);
+  }
+}
+.interactive{
+
+    padding: 10px 30px;
+    display: flex;
+    left: 4%;
     border: none;
     color: white;
     background-color: var(--buttonColor);
@@ -256,10 +277,18 @@
     transition: 0.8s all ease-in-out;
     font-family: sans-serif;
     max-width: 100%;
-  }
-  #temp2 .tempBox button:hover {
-    background-color: white;
-    color: var(--buttonColor);
-    border: 3px solid var(--buttonColor);
-  }
+}
+.videoInput{
+  display: flex;
+  justify-content: end;
+
+}
+.videoInput input{
+  background: transparent;
+  height: fit-content;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--buttonColor);
+  margin-left: 10%;
+  font-size: 20px;
 }

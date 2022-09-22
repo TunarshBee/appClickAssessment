@@ -18,16 +18,16 @@
   left: 0%;
   right: 0%;
   max-width: 100%;
-  max-height: fit-content;
+  height: 75vh;
   z-index: 1;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 4px;
   box-shadow: var(--boxShadow);
 }
 
 .preview h5 {
   margin: 20px auto;
-  font-size: 18px;
+  font-size: 25px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--buttonColor);
 }
@@ -124,24 +124,25 @@
     padding: 1px;
     height: 10%;
     transition: 1s all ease-in-out;
-
   }
 
   .template form {
     margin: 10px auto;
     padding: 5px;
     transition: 1s all ease-in-out;
-
-    
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
     position: relative;
     top: 37%;
     left: auto;
     right: 50%;
-
+    border-radius: 10px;
     width: fit-content;
     height: fit-content;
-    background-color: rgba(255, 255, 255, .4);
-    
+    background-color: rgba(255, 255, 255, 0.4);
+
     box-shadow: var(--boxShadow);
   }
 
@@ -256,15 +257,18 @@
     transition: 1s all ease-in-out;
 
     height: 10%;
-  
   }
 
   .template form {
     margin: 20px auto;
     padding: 10px;
     transition: 1s all ease-in-out;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
 
-    
     position: relative;
     top: 52%;
     left: auto;
@@ -272,8 +276,8 @@
 
     width: fit-content;
     height: fit-content;
-    background-color: rgba(255, 255, 255, .4);
-    
+    background-color: rgba(255, 255, 255, 0.4);
+
     box-shadow: var(--boxShadow);
   }
 
@@ -393,17 +397,19 @@
 
   .template form {
     padding: 10px;
-
-    /* max-width: 100%; */
+display: flex;
     position: relative;
     top: 68%;
     left: auto;
     right: 50%;
     transition: 1s all ease-in-out;
-
+    border-radius: 10px;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
     width: fit-content;
     height: fit-content;
-    background-color: rgba(255, 255, 255, .4);
+    background-color: rgba(255, 255, 255, 0.4);
     box-shadow: var(--boxShadow);
   }
 
@@ -443,6 +449,6 @@
     border: 3px solid var(--buttonColor);
   }
 }
-.preview .videoBox .placeholder{
+.preview .videoBox .placeholder {
   height: 100%;
 }

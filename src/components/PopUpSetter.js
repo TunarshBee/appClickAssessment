@@ -18,32 +18,35 @@ const FormTemplates = ({ setText, text, setPage }) => {
 
   const [popTime, setPupTime] = useState();
 
-  const [formBorder, setFormBorder] = useState();
-  const [file, setFile] = useState('')
-
+  const [file, setFile] = useState("");
+  const [videoPlaceH, setVideoPlaceH] = useState(true);
+  const [videoUrl, setVideoUrl] = useState("");
+  const [videfile, setVidefile] = useState("");
+  const [first, setFirst] = useState(true);
+  const [saveBtn, setSaveBtn] = useState(false);
   const formDetails = {
     theme: theme,
     textColor: textColor,
     fontSize: fSize,
     formposition: formposition,
     popTime: popTime,
-    formBorder: formBorder,
     text: text,
-    file:file,
+    videoPlaceH: videoPlaceH,
+    videoUrl: videoUrl,
+    videfile: videfile,
   };
 
   const saveDetail = () => {
     dispatch(FormDetail(formDetails));
     setPage(1);
-    
   };
   const uploadVideo = (e) => {
-    
     const file = e.target.files[0];
     const vidUrl = URL.createObjectURL(file);
     setFile(vidUrl);
-    
-    
+    setVidefile(vidUrl);
+    console.log(vidUrl);
+    setSaveBtn(true);
   };
 
   const style1 = {
@@ -67,6 +70,34 @@ const FormTemplates = ({ setText, text, setPage }) => {
 
   return (
     <div className="formTemplates">
+      {first && (
+        <div className="videoInput">
+          <input
+            type="file"
+            name="file"
+            id="file"
+            accept="video/*"
+            onChange={(e) => {
+              uploadVideo(e);
+            }}
+          />
+
+          <input
+            type="text"
+            placeholder="Past YouTube Video Url"
+            onChange={(e) => {
+              let url = e.target.value.split("v=")[1];
+              setVideoPlaceH(false);
+              setVideoUrl(url);
+
+              setTimeout(() => {
+                setVidefile("");
+              }, 1000);
+              setSaveBtn(true);
+            }}
+          />
+        </div>
+      )}
       <div className="temp" id="temp1">
         <form style={temp}>
           <br /> <br />
@@ -78,22 +109,13 @@ const FormTemplates = ({ setText, text, setPage }) => {
             style={{ color: textColor, fontSize: fSize + "px" }}
           />
           <br /> <br />
-          <input
-        type="file"
-        name="file"
-        id="file"
-        accept="video/*"
-        onChange={(e) => {
-            uploadVideo(e)
-          }}
-      />
         </form>
       </div>
 
       <div className="temp" id="temp2">
         <div className="tempBox" action="">
           <span>
-            <h5>Font Color</h5>
+            <h5>Text Color</h5>
             <input
               type="color"
               id="favcolor"
@@ -103,17 +125,8 @@ const FormTemplates = ({ setText, text, setPage }) => {
               }}
             ></input>
           </span>
-          <span>
-            <h5>Font Size in px</h5>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              min="11"
-              max="28"
-              onChange={(e) => setFSize(e.target.value)}
-            />
-          </span>
+         
+         
           <span>
             <h5>Pop Up Time </h5>
             <select name="" id="" onChange={(e) => setPupTime(e.target.value)}>
@@ -123,7 +136,6 @@ const FormTemplates = ({ setText, text, setPage }) => {
               <option value={10000}> 10s</option>
             </select>
           </span>
-
           <span>
             <h5>Background Color</h5>
             <input
@@ -137,11 +149,20 @@ const FormTemplates = ({ setText, text, setPage }) => {
             />
           </span>
           <br /> <br />
-          <Link to={"/preview"}>
-            <button onClick={saveDetail}>Next</button>
-          </Link>
+          {saveBtn && (
+              <Link to={"/preview"}>
+                <button onClick={saveDetail}>Save</button>
+              </Link>
+            )}
         </div>
       </div>
+      <button
+        style={{ display: "inline-block", position: "absolute" }}
+        className="interactive"
+        onClick={(e) => setFirst(!first)}
+      >
+        Create Interactive Video
+      </button>
     </div>
   );
 };

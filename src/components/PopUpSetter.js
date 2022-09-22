@@ -170,7 +170,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
                   <TextField
                   type="number"
                     id="standard-basic"
-                    onChange={(e) => setPupTime(e.target.value)}
+                    onChange={(e) => setPupTime((e.target.value) * 1000)}
                     label="type pop up time in sec"
                     variant="standard"
                     

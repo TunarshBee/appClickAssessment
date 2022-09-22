@@ -1,9 +1,18 @@
 import "../components/css/VideoPlayer.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { useDispatch } from "react-redux";
 import { FormDetail } from "../store/actions/FormDetail";
+import Form from "react-bootstrap/Form";
+import CssBaseline from "@mui/material/CssBaseline";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import TextField from "@mui/material/TextField";
+import Stack from "@mui/material/Stack";
+import { styled } from '@mui/material/styles';
+import { purple } from '@mui/material/colors';
+
+import Grid from "@mui/material/Unstable_Grid2";
 
 const FormTemplates = ({ setText, text, setPage }) => {
   const dispatch = useDispatch();
@@ -67,108 +76,157 @@ const FormTemplates = ({ setText, text, setPage }) => {
     borderRadius: "100px",
   };
   const [temp, setTemp] = useState(style1);
+  const ColorButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(purple[500]),
+    backgroundColor: '#222a68',
+    width:"20%",
+    position:'relative',
+    '&:hover': {
+      backgroundColor: '#222a68f2',
+    },
+  }));
 
   return (
     <div className="formTemplates">
-      {first && (
-        <div className="videoInput">
-          <input
-            type="file"
-            name="file"
-            id="file"
-            accept="video/*"
-            onChange={(e) => {
-              uploadVideo(e);
-            }}
-          />
+      <CssBaseline />
+      <Container>
+        {/* <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }} /> */}
 
-          <input
-            type="text"
-            placeholder="Past YouTube Video Url"
-            onChange={(e) => {
-              let url = e.target.value.split("v=")[1];
-              setVideoPlaceH(false);
-              setVideoUrl(url);
+        <Stack spacing={10} direction="column">
+          <Stack spacing={2} direction="column">
+            {/* <Link> */}
+              <Button
+                variant="contained"
+                onClick={(e) => setFirst(!first)}
+                disableElevation
+              >
+                Create Interactive Video
+              </Button>
+            {/* </Link> */}
+            {first && (
+              <div className="videoInpu">
+                <Stack spacing={15} direction="row">
+                  <ColorButton
+                    variant="contained"
+                    component="label"
+                    disableElevation
+                    
+                  >
+                    Upload File
+                    <input
+                    className="abs"
+                      type="file"
+                      hidden
+                      accept="video/*"
+                      onChange={(e) => {
+                        uploadVideo(e);
+                      }}
+                    />
+                  </ColorButton>
 
-              setTimeout(() => {
-                setVidefile("");
-              }, 1000);
-              setSaveBtn(true);
-            }}
-          />
-        </div>
-      )}
-      <div className="temp" id="temp1">
-        <form style={temp}>
-          <br /> <br />
-          <input
+                  <TextField
+                    id="standard-basic"
+                    accept="video/*"
+                    onChange={(e) => {
+                      let url = e.target.value.split("v=")[1];
+                      setVideoPlaceH(false);
+                      setVideoUrl(url);
+
+                      setTimeout(() => {
+                        setVidefile("");
+                      }, 1000);
+                      setSaveBtn(true);
+                    }}
+                    label="Paste a YouTube Video Url"
+                    variant="standard"
+                  />
+                </Stack>
+              </div>
+            )}
+          </Stack>
+
+          <TextField
             type="text"
             placeholder="Enter a popup text"
+            variant="standard"
             value={text}
             onChange={setText}
             style={{ color: textColor, fontSize: fSize + "px" }}
           />
-          <br /> <br />
-        </form>
-      </div>
 
-      <div className="temp" id="temp2">
-        <div className="tempBox" action="">
-          <span>
-            <label htmlFor="favcolor">
-                          <h5>Text Color</h5>
-            </label>
-            <input
-              type="color"
-              id="favcolor"
-              name="favcolor"
-              onChange={(e) => {
-                setTextColor(e.target.value);
-              }}
-            ></input>
-          </span>
-         
-         
-          <span>
-            <label htmlFor="pop">
-                          <h5>Pop Up Time </h5>
-            </label>
-            <select name="pop" id="pop" onChange={(e) => setPupTime(e.target.value)}>
-              <option value={1000}>1s</option>
-              <option value={2000}> 2s</option>
-              <option value={5000}> 5s</option>
-              <option value={10000}> 10s</option>
-            </select>
-          </span>
-          <span>
-            <label htmlFor="backcolor">
-                          <h5>Background Color</h5>
-            </label>
-            <input
-              type="color"
-              id="backcolor"
-              name="backcolor"
-              onChange={(e) => {
-                setTheme(e.target.value);
-                temp === style2 ? setTemp(style2) : setTemp(style1);
-              }}
-            />
-          </span>
-          <br /> <br />
-          {saveBtn && (
-              <Link to={"/preview"}>
-                <button onClick={saveDetail}>Save</button>
-              </Link>
-            )}
-        </div>
-      </div>
-      <button
-        style={{ display: "inline-block", position: "absolute" }}
-        className="interactive"
-        onClick={(e) => setFirst(!first)}
-      >
-        Create Interactive Video
-      </button>
+          <Stack>
+            <Grid
+              container
+              spacing={0}
+              sx={{ flexGrow: 1 }}
+              columns={18}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid xs={6}>
+                <span>
+                  {/* <Form.Label htmlFor="backcolor">Pop Up Time</Form.Label> */}
+                  <TextField
+                  type="number"
+                    id="standard-basic"
+                    onChange={(e) => setPupTime(e.target.value)}
+                    label="type pop up time in sec"
+                    variant="standard"
+                    
+                  />
+                </span>
+              </Grid>
+              <Grid xs={6}>
+                <span>
+                  <Form.Label htmlFor="backcolor">Background Color</Form.Label>
+                  <Form.Control
+                    type="color"
+                    id="backcolor"
+                    defaultValue="#563"
+                    name="backcolor"
+                    title="Choose your color"
+                    onChange={(e) => {
+                      setTheme(e.target.value);
+                      temp === style2 ? setTemp(style2) : setTemp(style1);
+                    }}
+                  />
+                </span>
+              </Grid>
+              <Grid xs={6}>
+                <span>
+                  <Form.Label htmlFor="exampleColorInput">
+                    Text Color
+                  </Form.Label>
+                  <Form.Control
+                    type="color"
+                    id="exampleColorInput"
+                    defaultValue="#563d7c"
+                    title="Choose your color"
+                    onChange={(e) => {
+                      setTextColor(e.target.value);
+                    }}
+                  />
+                </span>
+              </Grid>
+            </Grid>
+            <Stack>
+              <br /> <br />
+              {saveBtn && (
+                <Link to={"/preview"}>
+                  <Button
+                    variant="contained"
+                    onClick={saveDetail}
+                    disableElevation
+                  >
+                    save
+                  </Button>
+                </Link>
+              )}
+            </Stack>
+          </Stack>
+        </Stack>
+      </Container>
     </div>
   );
 };

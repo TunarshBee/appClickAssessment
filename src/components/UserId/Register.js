@@ -36,7 +36,7 @@ const Register = () => {
             dispatch(RegisterUser(newUser));
 
             setTimeout(() => {
-                window.location.replace("/home");
+                window.location.replace("/templates");
             }, 400);
         },
     });
@@ -81,7 +81,7 @@ const Register = () => {
                 ) : null}
                 <br /> <br />
                 <button type="submit" id="btn">
-                    Submit
+                    Sign In
                 </button>
                 <br /> <br />
             </form>

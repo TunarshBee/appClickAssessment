@@ -108,6 +108,7 @@ const Preview = () => {
             onPause={(e) => {
               setVidCurrentTime(e.target.currentTime);
             }}
+            
           ></iframe>
         )}
       </div>

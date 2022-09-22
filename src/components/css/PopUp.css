@@ -8,7 +8,7 @@
 
 .preview {
   margin: 40px;
-  display: flex;
+  
   flex-direction: column;
   justify-content: center;
   position: fixed;
@@ -22,7 +22,7 @@
   border-radius: 10px;
   box-shadow: var(--boxShadow);
   padding: auto auto 10% auto ;
-  min-height: 80vh;
+  
 }
 
 .preview h5 {
@@ -130,7 +130,7 @@
   }
 
   .template form {
-    margin: 10px auto;
+    
     padding: 5px;
     transition: 1s all ease-in-out;
     display: flex;
@@ -140,7 +140,7 @@
     position: relative;
     top: 37%;
     left: auto;
-    right: 50%;
+    right: -50%;
     border-radius: 10px;
     width: fit-content;
     height: fit-content;

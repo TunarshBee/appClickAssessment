@@ -115,17 +115,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
               <option value={10000}> 10s</option>
             </select>
           </span>
-          <span>
-            <h5>Background Color</h5>
-            <input
-              type="color"
-              id="favcolor"
-              name="favcolor"
-              onChange={(e) => {
-                temp === style2 ? setTemp(style2) : setTemp(style1);
-              }}
-            />
-          </span>
+         
           <br /> <br />
           <Link to={"/preview"}>
             <button onClick={saveDetail}>Next</button>

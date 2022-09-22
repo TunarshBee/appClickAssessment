@@ -115,7 +115,9 @@ const FormTemplates = ({ setText, text, setPage }) => {
       <div className="temp" id="temp2">
         <div className="tempBox" action="">
           <span>
-            <h5>Text Color</h5>
+            <label htmlFor="favcolor">
+                          <h5>Text Color</h5>
+            </label>
             <input
               type="color"
               id="favcolor"
@@ -128,8 +130,10 @@ const FormTemplates = ({ setText, text, setPage }) => {
          
          
           <span>
-            <h5>Pop Up Time </h5>
-            <select name="" id="" onChange={(e) => setPupTime(e.target.value)}>
+            <label htmlFor="pop">
+                          <h5>Pop Up Time </h5>
+            </label>
+            <select name="pop" id="pop" onChange={(e) => setPupTime(e.target.value)}>
               <option value={1000}>1s</option>
               <option value={2000}> 2s</option>
               <option value={5000}> 5s</option>
@@ -137,11 +141,13 @@ const FormTemplates = ({ setText, text, setPage }) => {
             </select>
           </span>
           <span>
-            <h5>Background Color</h5>
+            <label htmlFor="backcolor">
+                          <h5>Background Color</h5>
+            </label>
             <input
               type="color"
-              id="favcolor"
-              name="favcolor"
+              id="backcolor"
+              name="backcolor"
               onChange={(e) => {
                 setTheme(e.target.value);
                 temp === style2 ? setTemp(style2) : setTemp(style1);

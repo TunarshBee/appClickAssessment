@@ -20,9 +20,7 @@ const Preview = () => {
   };
   return (
     <div className="preview">
-      <h5>
-        Paste a Youtube link, choose a video file or drag and drop a video file
-      </h5>{" "}
+    
       <br />
       {vidCurrentTime && form === true && formStyle.text && (
         <div

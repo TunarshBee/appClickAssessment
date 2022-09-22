@@ -179,11 +179,11 @@ const FormTemplates = ({ setText, text, setPage }) => {
               </Grid>
               <Grid xs={6}>
                 <span>
-                  <Form.Label htmlFor="backcolor">Background Color</Form.Label>
+                  <Form.Label htmlFor="backcolor" className="label">Background Color:-</Form.Label>
                   <Form.Control
                     type="color"
                     id="backcolor"
-                    defaultValue="#563"
+                    defaultValue="blue"
                     name="backcolor"
                     title="Choose your color"
                     onChange={(e) => {
@@ -195,13 +195,13 @@ const FormTemplates = ({ setText, text, setPage }) => {
               </Grid>
               <Grid xs={6}>
                 <span>
-                  <Form.Label htmlFor="exampleColorInput">
-                    Text Color
+                  <Form.Label className="label" htmlFor="exampleColorInput">
+                    Text Color:-
                   </Form.Label>
                   <Form.Control
                     type="color"
                     id="exampleColorInput"
-                    defaultValue="#563d7c"
+                    defaultValue="#ffff00"
                     title="Choose your color"
                     onChange={(e) => {
                       setTextColor(e.target.value);

@@ -1,9 +1,9 @@
-import "./FormTemplates.css";
+import "../components/css/VideoPlayer.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
-import { FormDetail } from "../../store/actions/FormDetail";
+import { FormDetail } from "../store/actions/FormDetail";
 
 const FormTemplates = ({ setText, text, setPage }) => {
   const dispatch = useDispatch();

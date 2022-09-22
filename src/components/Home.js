@@ -1,9 +1,9 @@
-import "./Index.css";
+import "../components/css/Home.css";
 
 import { useState } from "react";
 
 
-import Register from "./Register";
+import Register from "./SignIn";
 
 const Index = () => {
     const [comp, setComp] = useState("login");

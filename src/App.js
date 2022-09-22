@@ -8,10 +8,10 @@ import {
     
 } from "react-router-dom";
 
-import Index from "./components/UserId/Index";
-import FormTemplates from "./components/AppInputs/FormTemplates";
-import Preview from "./components/Preview/Preview";
-import Form from "./components/Form";
+import Index from "./components/Home";
+import FormTemplates from "./components/PopUpSetter";
+import Preview from "./components/VideoPlayer";
+import Form from "./components/Display";
 function App() {
     const theuser = useSelector((state) => state.RegisterUser.username);
     return (

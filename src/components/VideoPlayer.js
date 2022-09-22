@@ -1,4 +1,4 @@
-import "./Preview.css";
+import "../components/css/PopUp.css";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 const Preview = () => {

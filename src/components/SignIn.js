@@ -1,7 +1,7 @@
-import "./Index.css";
+import "../components/css/Home.css";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { RegisterUser } from "../../store/actions/User";
+import { RegisterUser } from "../store/actions/User";
 import * as Yup from "yup";
 
 const Register = () => {

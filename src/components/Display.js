@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import FormTemplates from "./AppInputs/FormTemplates";
-import Preview from "./Preview/Preview";
+import FormTemplates from "./PopUpSetter";
+import Preview from "./VideoPlayer";
 
 const Form = () => {
   const [text, setText] = useState("");

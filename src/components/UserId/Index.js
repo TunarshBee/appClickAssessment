@@ -2,7 +2,7 @@ import "./Index.css";
 
 import { useState } from "react";
 
-import Login from "./Login";
+
 import Register from "./Register";
 
 const Index = () => {
@@ -11,21 +11,8 @@ const Index = () => {
     return (
         <div className="index">
             <div className="viewModal">
-                <h3 className="title">Interactive Video Form App</h3>
-                <div className="btnBoxx">
-                    <button className="Tbtn" onClick={() => setComp("login")}>
-                        Login
-                    </button>
-                    <button
-                        className="Tbtn"
-                        onClick={() => setComp("register")}
-                    >
-                        Register
-                    </button>
-                </div>
-
-                {comp === "login" && <Login />}
-                {comp === "register" && <Register />}
+                <h3 className="title">Sign In Here</h3>
+                {comp === "login" && <Register />}
             </div>
         </div>
     );

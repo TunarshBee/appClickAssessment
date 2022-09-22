@@ -72,7 +72,7 @@ const Preview = () => {
                   }}
                   onPause={(e) => {
                     setVidCurrentTime(e.target.currentTime);
-                    console.log(vidCurrentTime);
+                    
                   }}
                 ></video>
                 )}
@@ -106,7 +106,7 @@ const Preview = () => {
             }}
             onPause={(e) => {
               setVidCurrentTime(e.target.currentTime);
-              console.log(vidCurrentTime);
+              
             }}
           ></video>
         )}

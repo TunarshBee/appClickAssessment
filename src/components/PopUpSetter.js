@@ -35,14 +35,14 @@ const FormTemplates = ({ setText, text, setPage }) => {
   const saveDetail = () => {
     dispatch(FormDetail(formDetails));
     setPage(1);
-    console.log(file)
+    
   };
   const uploadVideo = (e) => {
     
     const file = e.target.files[0];
     const vidUrl = URL.createObjectURL(file);
     setFile(vidUrl);
-    console.log(vidUrl)
+    
     
   };
 

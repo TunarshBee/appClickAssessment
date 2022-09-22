@@ -8,20 +8,26 @@ import { FormDetail } from "../store/actions/FormDetail";
 const FormTemplates = ({ setText, text, setPage }) => {
   const dispatch = useDispatch();
 
+  const [theme, setTheme] = useState();
 
   const [textColor, setTextColor] = useState();
 
   const [fSize, setFSize] = useState();
 
+  const [formposition, setFormposition] = useState();
 
   const [popTime, setPupTime] = useState();
 
+  const [formBorder, setFormBorder] = useState();
   const [file, setFile] = useState('')
 
   const formDetails = {
+    theme: theme,
     textColor: textColor,
     fontSize: fSize,
+    formposition: formposition,
     popTime: popTime,
+    formBorder: formBorder,
     text: text,
     file:file,
   };
@@ -44,6 +50,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
     position: "relative",
     top: "10%",
     maxWidth: "275px",
+    backgroundColor: theme,
     bordeRadius: " 5px 40px",
   };
 
@@ -53,6 +60,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
     position: "relative",
     top: "10%",
     maxWidth: "275px",
+    backgroundColor: theme,
     borderRadius: "100px",
   };
   const [temp, setTemp] = useState(style1);
@@ -115,7 +123,19 @@ const FormTemplates = ({ setText, text, setPage }) => {
               <option value={10000}> 10s</option>
             </select>
           </span>
-         
+
+          <span>
+            <h5>Background Color</h5>
+            <input
+              type="color"
+              id="favcolor"
+              name="favcolor"
+              onChange={(e) => {
+                setTheme(e.target.value);
+                temp === style2 ? setTemp(style2) : setTemp(style1);
+              }}
+            />
+          </span>
           <br /> <br />
           <Link to={"/preview"}>
             <button onClick={saveDetail}>Next</button>

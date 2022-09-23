@@ -40,6 +40,7 @@ const Preview = () => {
               style={{
                 margin: " 0px 10px",
                 padding: "3px 6px",
+                position:"absolute",
                 backgroundColor: "transparent",
                 display: "flex",
                 borderRadius: "50px",

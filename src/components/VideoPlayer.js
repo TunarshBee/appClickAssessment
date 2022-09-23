@@ -64,15 +64,13 @@ const Preview = () => {
 
               </h4>
             )}
-            {formStyle.file && (
+            {formStyle.fle && (
               <h4
                 style={{
                   borderRadius: "10px",
-                  width:"100px",
-                  height:"60px"
                 }}
               >
-                <img src={formStyle.file} alt="popup i" />
+                <img src={formStyle.fle} width="100px" height="100px" alt="popup i" />
                 
               </h4>
             )}

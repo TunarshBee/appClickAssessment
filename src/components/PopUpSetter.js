@@ -43,7 +43,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
     videoPlaceH: videoPlaceH,
     videoUrl: videoUrl,
     videfile: videfile,
-    file: fle,
+    fle: fle,
   };
 
   const saveDetail = () => {
@@ -87,15 +87,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
       backgroundColor: "#222a68f2",
     },
   }));
-  const handleChange = (e) => {
-    let imgUrl = URL.createObjectURL(e);
-    setVideoPlaceH(false);
-    setFle(imgUrl);
 
-    console.log(videfile);
-    console.log(videoUrl);
-    console.log(fle);
-  };
   return (
     <div className="formTemplates">
       <CssBaseline />
@@ -170,9 +162,6 @@ const FormTemplates = ({ setText, text, setPage }) => {
               setVideoPlaceH(false);
               setFle(imgUrl);
 
-              console.log(videfile);
-              console.log(videoUrl);
-              console.log(fle);
             }}
             name="file"
             types={fileTypes}
@@ -181,18 +170,12 @@ const FormTemplates = ({ setText, text, setPage }) => {
               setVideoPlaceH(false);
               setFle(imgUrl);
 
-              console.log(videfile);
-              console.log(videoUrl);
-              console.log(fle);
             }}
             onSelect={(e) => {
               let imgUrl = URL.createObjectURL(e);
               setVideoPlaceH(false);
               setFle(imgUrl);
 
-              console.log(videfile);
-              console.log(videoUrl);
-              console.log(fle);
             }}
             classes="dnd"
           />

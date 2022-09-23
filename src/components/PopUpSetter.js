@@ -160,7 +160,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
             multiple={false}
             handleChange={(e) => {
               let imgUrl = URL.createObjectURL(e);
-              setVideoPlaceH(false);
+              // setVideoPlaceH(false);
               setFle(imgUrl);
 
             }}
@@ -168,13 +168,13 @@ const FormTemplates = ({ setText, text, setPage }) => {
             types={fileTypes}
             onDrop={(e) => {
               let imgUrl = URL.createObjectURL(e);
-              setVideoPlaceH(false);
+              // setVideoPlaceH(false);
               setFle(imgUrl);
 
             }}
             onSelect={(e) => {
               let imgUrl = URL.createObjectURL(e);
-              setVideoPlaceH(false);
+              // setVideoPlaceH(false);
               setFle(imgUrl);
 
             }}

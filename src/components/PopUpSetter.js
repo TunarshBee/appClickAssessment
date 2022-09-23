@@ -26,6 +26,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
   const [formposition, setFormposition] = useState();
 
   const [popTime, setPupTime] = useState();
+  const [form, setForm] = useState(false);
 
   const [videoPlaceH, setVideoPlaceH] = useState(true);
   const [videoUrl, setVideoUrl] = useState("");
@@ -136,6 +137,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
 
                       setTimeout(() => {
                         setVidefile("");
+                        setForm(true)
                       }, 1000);
 
                       setSaveBtn(true);

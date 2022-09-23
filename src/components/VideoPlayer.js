@@ -108,6 +108,9 @@ const Preview = () => {
           <iframe
             width="560"
             height="315"
+            controlsList=""
+            controls
+            id="video"
             src={`https://www.youtube.com/embed/${formStyle.videoUrl}`}
             title="YouTube video player"
             frameBorder="0"

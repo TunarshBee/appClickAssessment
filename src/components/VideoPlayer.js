@@ -20,7 +20,6 @@ const Preview = () => {
   };
   return (
     <div className="preview">
-    
       <br />
       {vidCurrentTime && form === true && formStyle.text && (
         <div
@@ -38,17 +37,16 @@ const Preview = () => {
           >
             <h6
               style={{
-        
                 padding: "3px 6px",
-                position:"absolute",
+                position: "absolute",
                 backgroundColor: "transparent",
                 display: "flex",
                 borderRadius: "50px",
                 float: "right",
                 color: "red",
-                right:"5%",
-                fontSize:"25px",
-                top: "5%",
+                right: "5%",
+                fontSize: "25px",
+                // top: "5%",
                 cursor: "pointer",
                 fontFamily: "sans-serif",
               }}
@@ -65,7 +63,6 @@ const Preview = () => {
                 }}
               >
                 {formStyle.text}
-
               </h4>
             )}
             {formStyle.fle && (
@@ -74,16 +71,22 @@ const Preview = () => {
                   borderRadius: "10px",
                 }}
               >
-                <img src={formStyle.fle} width="100px" height="100px" alt="popup i" />
-                
+                <img
+                  src={formStyle.fle}
+                  width="100px"
+                  height="100px"
+                  alt="popup i"
+                />
               </h4>
             )}
-            {
-              !formStyle.text && formStyle.fle && (
-                <img src={formStyle.fle} width="100px" height="100px" alt="popup i" />
-              )
-            }
-
+            {!formStyle.text && formStyle.fle && (
+              <img
+                src={formStyle.fle}
+                width="100px"
+                height="100px"
+                alt="popup i"
+              />
+            )}
           </form>
         </div>
       )}
@@ -129,7 +132,6 @@ const Preview = () => {
             onPause={(e) => {
               setVidCurrentTime(e.target.currentTime);
             }}
-            
           ></iframe>
         )}
       </div>

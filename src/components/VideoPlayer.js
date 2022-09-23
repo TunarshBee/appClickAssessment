@@ -76,7 +76,7 @@ const Preview = () => {
               </h4>
             )}
             {
-              !formStyle.text && (
+              !formStyle.text && formStyle.fle && (
                 <img src={formStyle.fle} width="100px" height="100px" alt="popup i" />
               )
             }

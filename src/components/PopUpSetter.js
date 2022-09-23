@@ -103,7 +103,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
               onClick={(e) => setFirst(!first)}
               disableElevation
             >
-              Create Interactive Video
+              Click To Create Interactive Video
             </Button>
             {/* </Link> */}
             {first && (

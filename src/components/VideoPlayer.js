@@ -38,7 +38,7 @@ const Preview = () => {
           >
             <h6
               style={{
-                margin: " 0px 10px",
+        
                 padding: "3px 6px",
                 position:"absolute",
                 backgroundColor: "transparent",
@@ -46,6 +46,8 @@ const Preview = () => {
                 borderRadius: "50px",
                 float: "right",
                 color: "red",
+                right:"5%",
+                top: "5%",
                 cursor: "pointer",
                 fontFamily: "sans-serif",
               }}

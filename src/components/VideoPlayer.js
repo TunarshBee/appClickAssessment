@@ -65,6 +65,7 @@ const Preview = () => {
                 {formStyle.text}
               </h4>
             )}
+            
             {formStyle.fle && (
               <h4
                 style={{
@@ -79,7 +80,7 @@ const Preview = () => {
                 />
               </h4>
             )}
-            {!formStyle.text && formStyle.fle && (
+            {!formStyle.text || formStyle.videfile&& formStyle.fle && (
               <img
                 src={formStyle.fle}
                 width="100px"

@@ -61,6 +61,19 @@ const Preview = () => {
                 }}
               >
                 {formStyle.text}
+
+              </h4>
+            )}
+            {formStyle.file && (
+              <h4
+                style={{
+                  borderRadius: "10px",
+                  width:"100px",
+                  height:"60px"
+                }}
+              >
+                <img src={formStyle.file} alt="popup image" />
+                
               </h4>
             )}
           </form>

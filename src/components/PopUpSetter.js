@@ -9,8 +9,8 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
-import { styled } from '@mui/material/styles';
-import { purple } from '@mui/material/colors';
+import { styled } from "@mui/material/styles";
+import { purple } from "@mui/material/colors";
 import { FileUploader } from "react-drag-drop-files";
 import Grid from "@mui/material/Unstable_Grid2";
 
@@ -27,12 +27,12 @@ const FormTemplates = ({ setText, text, setPage }) => {
 
   const [popTime, setPupTime] = useState();
 
-  const [file, setFile] = useState("");
   const [videoPlaceH, setVideoPlaceH] = useState(true);
   const [videoUrl, setVideoUrl] = useState("");
   const [videfile, setVidefile] = useState("");
-  const [first, setFirst] = useState(true);
+  const [first, setFirst] = useState(false);
   const [saveBtn, setSaveBtn] = useState(false);
+  const [fle, setFle] = useState("");
   const formDetails = {
     theme: theme,
     textColor: textColor,
@@ -40,20 +40,20 @@ const FormTemplates = ({ setText, text, setPage }) => {
     formposition: formposition,
     popTime: popTime,
     text: text,
-    file:file,
     videoPlaceH: videoPlaceH,
     videoUrl: videoUrl,
     videfile: videfile,
+    file: fle,
   };
 
   const saveDetail = () => {
     dispatch(FormDetail(formDetails));
     setPage(1);
   };
+
   const uploadVideo = (e) => {
     const file = e.target.files[0];
     const vidUrl = URL.createObjectURL(file);
-    setFile(vidUrl);
     setVidefile(vidUrl);
     console.log(vidUrl);
     setSaveBtn(true);
@@ -66,7 +66,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
     backgroundColor: theme,
     bordeRadius: " 5px 40px",
   };
-const fileTypes = ["JPEG","JPG", "PNG", "GIF"];
+  const fileTypes = ["JPEG", "JPG", "PNG", "GIF"];
 
   const style2 = {
     margin: "20px auto 3px",
@@ -80,16 +80,13 @@ const fileTypes = ["JPEG","JPG", "PNG", "GIF"];
   const [temp, setTemp] = useState(style1);
   const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: '#222a68',
-    width:"20%",
-    position:'relative',
-    '&:hover': {
-      backgroundColor: '#222a68f2',
+    backgroundColor: "#222a68",
+    width: "20%",
+    position: "relative",
+    "&:hover": {
+      backgroundColor: "#222a68f2",
     },
   }));
-  const handleChange = (file) => {
-    setFile(file);
-  };
 
   return (
     <div className="formTemplates">
@@ -100,13 +97,13 @@ const fileTypes = ["JPEG","JPG", "PNG", "GIF"];
         <Stack spacing={10} direction="column">
           <Stack spacing={2} direction="column">
             {/* <Link> */}
-              <Button
-                variant="contained"
-                onClick={(e) => setFirst(!first)}
-                disableElevation
-              >
-                Create Interactive Video
-              </Button>
+            <Button
+              variant="contained"
+              onClick={(e) => setFirst(!first)}
+              disableElevation
+            >
+              Create Interactive Video
+            </Button>
             {/* </Link> */}
             {first && (
               <div className="videoInpu">
@@ -115,11 +112,10 @@ const fileTypes = ["JPEG","JPG", "PNG", "GIF"];
                     variant="contained"
                     component="label"
                     disableElevation
-                    
                   >
                     Upload File
                     <input
-                    className="abs"
+                      className="abs"
                       type="file"
                       hidden
                       accept="video/*"
@@ -158,14 +154,26 @@ const fileTypes = ["JPEG","JPG", "PNG", "GIF"];
             onChange={setText}
             style={{ color: textColor, fontSize: fSize + "px" }}
           />
-<FileUploader
-        multiple={false}
-        handleChange={handleChange}
-        name="file"
-        types={fileTypes}
-        onDrop={(file) => console.log(file)}
-        classes="dnd"
-      />
+          <FileUploader
+            multiple={false}
+            handleChange={(e) => {
+              let imgUrl = URL.createObjectURL(e);
+              setVideoPlaceH(false);
+              setFle(imgUrl);
+
+              setTimeout(() => {
+                setVideoUrl("");
+                setVidefile("");
+              }, 1000);
+              console.log(videfile)
+              console.log(videoUrl)
+              console.log(fle)
+            }}
+            name="file"
+            types={fileTypes}
+            onDrop={(file) => console.log(file)}
+            classes="dnd"
+          />
 
           <Stack>
             <Grid
@@ -181,18 +189,19 @@ const fileTypes = ["JPEG","JPG", "PNG", "GIF"];
                 <span>
                   {/* <Form.Label htmlFor="backcolor">Pop Up Time</Form.Label> */}
                   <TextField
-                  type="number"
+                    type="number"
                     id="standard-basic"
-                    onChange={(e) => setPupTime((e.target.value) * 1000)}
+                    onChange={(e) => setPupTime(e.target.value * 1000)}
                     label="type pop up time in sec"
                     variant="standard"
-                    
                   />
                 </span>
               </Grid>
               <Grid xs={6}>
                 <span>
-                  <Form.Label htmlFor="backcolor" className="label">Background Color:-</Form.Label>
+                  <Form.Label htmlFor="backcolor" className="label">
+                    Background Color:-
+                  </Form.Label>
                   <Form.Control
                     type="color"
                     id="backcolor"

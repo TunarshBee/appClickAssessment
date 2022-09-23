@@ -4,20 +4,10 @@ import { useSelector } from "react-redux";
 const Preview = () => {
   const formStyle = useSelector((state) => state.FormDetail);
 
-  const [videoUrl, setVideoUrl] = useState();
-  const [videofile, setVideofile] = useState();
-  const [videoPlaceH, setVideoPlaceH] = useState(true);
   const [vidCurrentTime, setVidCurrentTime] = useState();
 
   const [form, setForm] = useState(false);
-  const uploadVideo = (e) => {
-    setVideoUrl(false);
-    const file = e.target.files[0];
-    const vidUrl = URL.createObjectURL(file);
-    setVideofile(vidUrl);
 
-    setVideoPlaceH(false);
-  };
   return (
     <div className="preview">
       <br />
@@ -65,7 +55,7 @@ const Preview = () => {
                 {formStyle.text}
               </h4>
             )}
-            
+
             {formStyle.fle && (
               <h4
                 style={{
@@ -80,14 +70,15 @@ const Preview = () => {
                 />
               </h4>
             )}
-            {!formStyle.text || formStyle.videfile&& formStyle.fle && (
-              <img
-                src={formStyle.fle}
-                width="100px"
-                height="100px"
-                alt="popup i"
-              />
-            )}
+            {!formStyle.text ||
+              (formStyle.videfile && formStyle.fle && (
+                <img
+                  src={formStyle.fle}
+                  width="100px"
+                  height="100px"
+                  alt="popup i"
+                />
+              ))}
           </form>
         </div>
       )}

@@ -126,6 +126,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
                   </ColorButton>
 
                   <TextField
+                  className="abs"
                     id="standard-basic"
                     accept="video/*"
                     onChange={(e) => {

@@ -47,6 +47,7 @@ const Preview = () => {
                 float: "right",
                 color: "red",
                 right:"5%",
+                fontSize:"25px",
                 top: "5%",
                 cursor: "pointer",
                 fontFamily: "sans-serif",

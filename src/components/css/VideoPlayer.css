@@ -324,3 +324,6 @@ button:hover{
   background-color: transparent;
   border: none;
 }
+.dnd{
+  min-width: 100% !important;
+}

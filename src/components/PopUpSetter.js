@@ -11,7 +11,7 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
-
+import { FileUploader } from "react-drag-drop-files";
 import Grid from "@mui/material/Unstable_Grid2";
 
 const FormTemplates = ({ setText, text, setPage }) => {
@@ -40,6 +40,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
     formposition: formposition,
     popTime: popTime,
     text: text,
+    file:file,
     videoPlaceH: videoPlaceH,
     videoUrl: videoUrl,
     videfile: videfile,
@@ -65,6 +66,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
     backgroundColor: theme,
     bordeRadius: " 5px 40px",
   };
+const fileTypes = ["JPEG","JPG", "PNG", "GIF"];
 
   const style2 = {
     margin: "20px auto 3px",
@@ -85,6 +87,9 @@ const FormTemplates = ({ setText, text, setPage }) => {
       backgroundColor: '#222a68f2',
     },
   }));
+  const handleChange = (file) => {
+    setFile(file);
+  };
 
   return (
     <div className="formTemplates">
@@ -153,6 +158,14 @@ const FormTemplates = ({ setText, text, setPage }) => {
             onChange={setText}
             style={{ color: textColor, fontSize: fSize + "px" }}
           />
+<FileUploader
+        multiple={false}
+        handleChange={handleChange}
+        name="file"
+        types={fileTypes}
+        onDrop={(file) => console.log(file)}
+        classes="dnd"
+      />
 
           <Stack>
             <Grid

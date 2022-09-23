@@ -74,6 +74,8 @@ const Preview = () => {
                 
               </h4>
             )}
+                <img src={formStyle.fle} width="100px" height="100px" alt="popup i" />
+
           </form>
         </div>
       )}

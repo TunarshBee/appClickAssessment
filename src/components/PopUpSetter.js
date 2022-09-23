@@ -87,7 +87,15 @@ const FormTemplates = ({ setText, text, setPage }) => {
       backgroundColor: "#222a68f2",
     },
   }));
+  const handleChange = (e) => {
+    let imgUrl = URL.createObjectURL(e);
+    setVideoPlaceH(false);
+    setFle(imgUrl);
 
+    console.log(videfile);
+    console.log(videoUrl);
+    console.log(fle);
+  };
   return (
     <div className="formTemplates">
       <CssBaseline />
@@ -136,6 +144,7 @@ const FormTemplates = ({ setText, text, setPage }) => {
                       setTimeout(() => {
                         setVidefile("");
                       }, 1000);
+
                       setSaveBtn(true);
                     }}
                     label="Paste a YouTube Video Url"
@@ -161,17 +170,30 @@ const FormTemplates = ({ setText, text, setPage }) => {
               setVideoPlaceH(false);
               setFle(imgUrl);
 
-              setTimeout(() => {
-                setVideoUrl("");
-                setVidefile("");
-              }, 1000);
-              console.log(videfile)
-              console.log(videoUrl)
-              console.log(fle)
+              console.log(videfile);
+              console.log(videoUrl);
+              console.log(fle);
             }}
             name="file"
             types={fileTypes}
-            onDrop={(file) => console.log(file)}
+            onDrop={(e) => {
+              let imgUrl = URL.createObjectURL(e);
+              setVideoPlaceH(false);
+              setFle(imgUrl);
+
+              console.log(videfile);
+              console.log(videoUrl);
+              console.log(fle);
+            }}
+            onSelect={(e) => {
+              let imgUrl = URL.createObjectURL(e);
+              setVideoPlaceH(false);
+              setFle(imgUrl);
+
+              console.log(videfile);
+              console.log(videoUrl);
+              console.log(fle);
+            }}
             classes="dnd"
           />
 

@@ -72,7 +72,7 @@ const Preview = () => {
                   height:"60px"
                 }}
               >
-                <img src={formStyle.file} alt="popup image" />
+                <img src={formStyle.file} alt="popup i" />
                 
               </h4>
             )}

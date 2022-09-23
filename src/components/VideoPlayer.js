@@ -107,7 +107,7 @@ const Preview = () => {
         {formStyle.videoUrl && (
           <iframe
             width="560"
-            height="315"
+            height="80vh"
             controlsList=""
             controls
             id="video"
@@ -116,7 +116,7 @@ const Preview = () => {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            onPlay={(e) => {
+            onClick={(e) => {
               setInterval(() => {
                 setVidCurrentTime(e.target.currentTime);
               }, 1000);
@@ -124,9 +124,7 @@ const Preview = () => {
                 setForm(true);
               }, formStyle.popTime);
             }}
-            onPause={(e) => {
-              setVidCurrentTime(e.target.currentTime);
-            }}
+           
           ></iframe>
         )}
       </div>

@@ -51,7 +51,12 @@ const FormTemplates = ({ setText, text, setPage }) => {
     dispatch(FormDetail(formDetails));
     setPage(1);
   };
+  const handleChange=(e) => {
+    let imgUrl = URL.createObjectURL(e);
+    setFle(imgUrl);
+    console.log(imgUrl)
 
+  }
   const uploadVideo = (e) => {
     const file = e.target.files[0];
     const vidUrl = URL.createObjectURL(file);
@@ -161,26 +166,9 @@ const FormTemplates = ({ setText, text, setPage }) => {
           />
           <FileUploader
             multiple={false}
-            handleChange={(e) => {
-              let imgUrl = URL.createObjectURL(e);
-              // setVideoPlaceH(false);
-              setFle(imgUrl);
-
-            }}
+            handleChange={handleChange}
             name="file"
             types={fileTypes}
-            onDrop={(e) => {
-              let imgUrl = URL.createObjectURL(e);
-              // setVideoPlaceH(false);
-              setFle(imgUrl);
-
-            }}
-            onSelect={(e) => {
-              let imgUrl = URL.createObjectURL(e);
-              // setVideoPlaceH(false);
-              setFle(imgUrl);
-
-            }}
             classes="dnd"
           />
 

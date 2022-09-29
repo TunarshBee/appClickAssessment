@@ -36,7 +36,6 @@ const Preview = () => {
                 color: "red",
                 right: "5%",
                 fontSize: "25px",
-                // top: "5%",
                 cursor: "pointer",
                 fontFamily: "sans-serif",
               }}
@@ -57,28 +56,20 @@ const Preview = () => {
             )}
 
             {formStyle.fle && (
-              <h4
+           
+                <img
                 style={{
                   borderRadius: "10px",
                 }}
-              >
-                <img
                   src={formStyle.fle}
                   width="100px"
                   height="100px"
                   alt="popup i"
+             
                 />
-              </h4>
+       
             )}
-            {!formStyle.text ||
-              (formStyle.videfile && formStyle.fle && (
-                <img
-                  src={formStyle.fle}
-                  width="100px"
-                  height="100px"
-                  alt="popup i"
-                />
-              ))}
+            
           </form>
         </div>
       )}
@@ -116,7 +107,7 @@ const Preview = () => {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            onClick={(e) => {
+            onFocus={(e) => {
               setInterval(() => {
                 setVidCurrentTime(e.target.currentTime);
               }, 1000);

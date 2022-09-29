@@ -3,7 +3,7 @@ import { rootReducer } from "./root";
 import { createStore, applyMiddleware, compose } from "redux";
 import promiseMiddleWare from "redux-promise";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import storage from "redux-persist/lib/storage/session";
 
 const persistConfig = {
     key: "root",
